@@ -5,6 +5,7 @@ import 'package:paepad_project/components/rounded_button.dart';
 import 'package:paepad_project/components/rounded_input_field.dart';
 import 'package:paepad_project/components/rounded_password_field.dart';
 import 'package:paepad_project/components/already_have_an_account_check.dart';
+import 'package:paepad_project/Screens/Welcome/Register/register_screen.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -15,7 +16,8 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Background(
-      child: Column(
+      child: SingleChildScrollView(
+        child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
@@ -41,10 +43,19 @@ class Body extends StatelessWidget {
             ),
             SizedBox(height: size.height * 0.03),
             AlreadyHaveAnAccountCheck(
-              press: () {},
+              press: () {
+                Navigator.push(context,
+                 MaterialPageRoute(
+                   builder: (context) {
+                     return Register();
+                   } ,
+                 ),
+                );
+              },
             )
         ],
       )
+      ),
     );
   }
 }
